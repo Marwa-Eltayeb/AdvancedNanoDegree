@@ -42,10 +42,10 @@ public class OrderActivityBasicTest {
         onView((withId(R.id.decrement_button)))
                 .perform(click());
 
-        // Verify that the decrement button decreases the quantity by 1
+        // Verify that the decrement button does not decrease the quantity by 1
         onView(withId(R.id.quantity_text_view)).check(matches(withText("0")));
 
-        // Verify that the increment button also increases the total cost to $5.00
+        // Verify that the initial total cost is $0.00
         onView(withId(R.id.cost_text_view)).check(matches(withText("$0.00")));
     }
 }
