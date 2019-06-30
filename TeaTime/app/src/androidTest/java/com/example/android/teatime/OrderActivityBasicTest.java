@@ -4,6 +4,7 @@ import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
 
 import org.junit.Rule;
+import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import static android.support.test.espresso.Espresso.onView;
@@ -32,7 +33,7 @@ public class OrderActivityBasicTest {
     public ActivityTestRule<OrderActivity> mActivityTestRule =
             new ActivityTestRule<>(OrderActivity.class);
 
-    
+    @Test
     public void clickDecrementButton_ChangesQuantityAndCost() {
         // Check the initial quantity variable is zero
         onView((withId(R.id.quantity_text_view))).check(matches(withText("0")));
