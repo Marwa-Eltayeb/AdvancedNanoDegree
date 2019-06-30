@@ -1,7 +1,9 @@
 package com.example.android.teatime;
 
+import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
 
+import org.junit.Rule;
 import org.junit.runner.RunWith;
 
 /**
@@ -12,7 +14,17 @@ import org.junit.runner.RunWith;
 @RunWith(AndroidJUnit4.class)
 public class OrderActivityBasicTest {
 
-    // TODO (2) Add the rule that provides functional testing of a single activity
+    /**
+     * The ActivityTestRule is a rule provided by Android used for functional testing of a single
+     * activity. The activity that will be tested will be launched before each test that's annotated
+     * with @Test and before methods annotated with @before. The activity will be terminated after
+     * the test and methods annotated with @After are complete. This rule allows you to directly
+     * access the activity during the test.
+     */
+
+    @Rule
+    public ActivityTestRule<OrderActivity> mActivityTestRule =
+            new ActivityTestRule<>(OrderActivity.class);
 
     // TODO (3) Finish writing this test which will:
     //          - Check that the initial quantity is zero
