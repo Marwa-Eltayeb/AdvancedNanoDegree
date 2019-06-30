@@ -48,4 +48,15 @@ public class OrderActivityBasicTest {
         // Verify that the initial total cost is $0.00
         onView(withId(R.id.cost_text_view)).check(matches(withText("$0.00")));
     }
+
+    @Test
+    public void clickIncrementButton_ChangesQuantityAndCost() {
+        // Find the View and perform action on the View
+        onView((withId(R.id.increment_button))).perform(click());
+
+        // Check if the View does what you expected
+        onView((withId(R.id.quantity_text_view))).check(matches(withText("1")));
+        onView((withId(R.id.cost_text_view))).check(matches(withText("$5.00")));
+    }
+
 }
