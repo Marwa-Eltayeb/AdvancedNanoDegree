@@ -5,6 +5,7 @@ import android.support.test.espresso.IdlingResource;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -33,10 +34,8 @@ public class IdlingResourceMenuActivityTest {
     @Rule
     public ActivityTestRule<MenuActivity> mActivityTestRule =
             new ActivityTestRule<>(MenuActivity.class);
-
-
+    
     private IdlingResource mIdlingResource;
-
 
     // Registers any resource that needs to be synchronized with Espresso before the test is run.
     @Before
@@ -51,6 +50,11 @@ public class IdlingResourceMenuActivityTest {
         onData(anything()).inAdapterView(withId(R.id.tea_grid_view)).atPosition(0).perform(click());
     }
 
-
-    
+    // Remember to unregister resources when not needed to avoid malfunction.
+    @After
+    public void unregisterIdlingResource() {
+        if (mIdlingResource != null) {
+            Espresso.unregisterIdlingResources(mIdlingResource);
+        }
+    }
 }
