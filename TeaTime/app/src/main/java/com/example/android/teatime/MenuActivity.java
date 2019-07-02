@@ -95,9 +95,19 @@ public class MenuActivity extends AppCompatActivity implements ImageDownloader.D
 
     }
 
+    /**
+     * We call ImageDownloader.downloadImage from onStart or onResume instead of in onCreate
+     * to ensure there is enough time to register IdlingResource if the download is done
+     * too early (i.e. in onCreate)
+     */
+    @Override
+    protected void onStart() {
+        super.onStart();
+        ImageDownloader.downloadImage(this, MenuActivity.this, mIdlingResource);
+    }
 
     @Override
     public void onDone(ArrayList<Tea> teas) {
-        
+
     }
 }
