@@ -69,8 +69,9 @@
 
     <!--Loading message-->
     <string name="done_msg">Your tea is ready!</string>
+    <string name="loading_msg">Loading images</string>
 
-
+    
     <!--Spinner Options-->
     <string-array name="tea_size_array">
         <item>Small ($5/cup)</item>
