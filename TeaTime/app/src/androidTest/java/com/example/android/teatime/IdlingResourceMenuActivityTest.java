@@ -7,7 +7,13 @@ import android.support.test.runner.AndroidJUnit4;
 
 import org.junit.Before;
 import org.junit.Rule;
+import org.junit.Test;
 import org.junit.runner.RunWith;
+
+import static android.support.test.espresso.Espresso.onData;
+import static android.support.test.espresso.action.ViewActions.click;
+import static android.support.test.espresso.matcher.ViewMatchers.withId;
+import static org.hamcrest.Matchers.anything;
 
 /**
  * Created by Marwa on 7/3/2019.
@@ -40,4 +46,11 @@ public class IdlingResourceMenuActivityTest {
         Espresso.registerIdlingResources(mIdlingResource);
     }
 
+    @Test
+    public void idlingResourceTest() {
+        onData(anything()).inAdapterView(withId(R.id.tea_grid_view)).atPosition(0).perform(click());
+    }
+
+
+    
 }
