@@ -32,7 +32,7 @@ import com.example.android.teatime.model.Tea;
 
 import java.util.ArrayList;
 
-public class MenuActivity extends AppCompatActivity{
+public class MenuActivity extends AppCompatActivity implements ImageDownloader.DelayerCallback{
 
     Intent mTeaIntent;
 
@@ -96,4 +96,8 @@ public class MenuActivity extends AppCompatActivity{
     }
 
 
+    @Override
+    public void onDone(ArrayList<Tea> teas) {
+        
+    }
 }
