@@ -1,8 +1,11 @@
 package com.example.android.teatime;
 
+import android.support.test.espresso.Espresso;
+import android.support.test.espresso.IdlingResource;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
 
+import org.junit.Before;
 import org.junit.Rule;
 import org.junit.runner.RunWith;
 
@@ -25,6 +28,16 @@ public class IdlingResourceMenuActivityTest {
     public ActivityTestRule<MenuActivity> mActivityTestRule =
             new ActivityTestRule<>(MenuActivity.class);
 
-    
+
+    private IdlingResource mIdlingResource;
+
+
+    // Registers any resource that needs to be synchronized with Espresso before the test is run.
+    @Before
+    public void registerIdlingResource() {
+        mIdlingResource = mActivityTestRule.getActivity().getIdlingResource();
+        // To prove that the test fails, omit this call:
+        Espresso.registerIdlingResources(mIdlingResource);
+    }
 
 }
