@@ -34,7 +34,7 @@ public class IdlingResourceMenuActivityTest {
     @Rule
     public ActivityTestRule<MenuActivity> mActivityTestRule =
             new ActivityTestRule<>(MenuActivity.class);
-    
+
     private IdlingResource mIdlingResource;
 
     // Registers any resource that needs to be synchronized with Espresso before the test is run.
