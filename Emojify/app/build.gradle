@@ -30,5 +30,7 @@ dependencies {
     // ButterKnife Library
     compile 'com.jakewharton:butterknife:8.4.0'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
+    // Timber Library
+    compile 'com.jakewharton.timber:timber:4.5.0'
     testCompile 'junit:junit:4.12'
 }
