@@ -18,6 +18,7 @@
             android:label="@string/title_activity_my_garden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.VIEW" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
@@ -38,6 +39,7 @@
                 android:name="android.appwidget.provider"
                 android:resource="@xml/plant_widget_info" />
         </receiver>
-    </application>
 
+        <service android:name=".PlantWateringService" />
+    </application>
 </manifest>
